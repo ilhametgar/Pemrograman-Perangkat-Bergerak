@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="193dp"
+            android:layout_height="213dp"
+            android:layout_gravity="center"
+            android:src="@drawable/fotoprofil" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textSize="25sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/frame"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=": Ilham Etgar Mileniar"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="100dp"/>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=": Bulusan, Tembalang"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="100dp"/>
+
+        <TextView
+            android:id="@+id/tv_hobby"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hobby"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_hobby2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hobby2"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="100dp"/>
+
+        <TextView
+            android:id="@+id/tv_quotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/quotes"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_quotes2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=": Never Go Back.."
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:layout_marginTop="160dp"
+            android:layout_marginLeft="100dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
