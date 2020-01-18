@@ -32,54 +32,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-            mAuth = FirebaseAuth.getInstance();
-            mDialog = new ProgressDialog(this);
+        mAuth = FirebaseAuth.getInstance();
+        mDialog = new ProgressDialog(this);
+        email = findViewById(R.id.email_login);
+        pass = findViewById(R.id.password_login);
+        btnLogin = findViewById(R.id.btn_login);
 
-            email = findViewById(R.id.email_login);
-            pass = findViewById(R.id.password_login);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String mEmail = email.getText().toString().trim();
+                String mPass = pass.getText().toString().trim();
+                if(TextUtils.isEmpty(mEmail)){
+                    email.setError("Required Field...");
+                    return;
+                }
 
-            btnLogin = findViewById(R.id.btn_login);
-            btnLogin.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-                    String mEmail = email.getText().toString().trim();
-                    String mPass = pass.getText().toString().trim();
-
-                    if(TextUtils.isEmpty(mEmail)) {
-                      email.setError("Required Field...");
-                       return;
+                if(TextUtils.isEmpty(mPass)){
+                    pass.setError("Required Field...");
+                    return;
+                }
+                mDialog.setMessage("Processing...");
+                mDialog.show();
+                mAuth.signInWithEmailAndPassword(mEmail, mPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                            Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_SHORT).show();
+                            mDialog.dismiss();
+                        }else {
+                            Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT). show();
+                            mDialog.dismiss();
+                        }
                     }
-        if(TextUtils.isEmpty(mPass)){
-             pass.setError("Required Field...");
-             return;
+                });
             }
+        });
 
-        mDialog.setMessage("Processing...");
-        mDialog.show();
-
-        mAuth.signInWithEmailAndPassword(mEmail, mPass).addOnCompleteListener(new
-    OnCompleteListener<AuthResult>() {
-   @Override
-    public void onComplete(@NonNull Task<AuthResult> task) {
-    if(task.isSuccessful()){
-    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-    Toast.makeText(getApplicationContext(), "Successful", Toast.LENGTH_SHORT).show();
-    mDialog.dismiss();
-    }else {
-    Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_SHORT). show();
-
-    mDialog.dismiss();
-                          }
-     }
- });
-       }
-});
         signUp = findViewById(R.id.signup_txt);
         signUp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+            @Override
+            public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), RegistrationActivity.class));
-              }
-           });
-        }
+            }
+        });
+
+    }
 }
